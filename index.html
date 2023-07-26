@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image_slider</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div>
+        <div id="lg">
+
+            <img src="images/2.jpg" class="b1" alt="">
+            <img src="images/3.jpg" class="b1" alt="">
+            <img src="images/4.jpg" class="b1" alt="">
+            <img src="images/5.jpg" class="b1" alt="">
+            <img src="images/6.jpg" class="b1" alt="">
+            <img src="images/7.jpg" class="b1" alt="">
+            
+        </div>
+
+        <div id="btn">
+            <input type="button" id="p" onclick="p()" value="Previous">
+            <input type="button" id="n" onclick="n()" value="Next">
+        </div>
+
+    </div>
+
+    <script>
+        cnt=0
+        var s_i = document.getElementsByClassName('b1')
+        function slider() {
+            for(var i = 0 ; i < s_i.length ; i++){
+                s_i[i].style.display = "none";
+            }
+            if(cnt > s_i.length-1){
+                cnt = 0;
+            }
+            if(cnt < 0){
+                cnt =  s_i.length-1
+            }
+            s_i[cnt].style.display = "block"
+
+        }
+        
+        function n() {
+            cnt++;
+            slider();
+        }
+
+        function p() {
+            cnt--;
+            slider();
+        }
+        setInterval(function(){
+            n();
+        },5000)
+
+        slider();
+    </script>
+
+</body>
+</html>
